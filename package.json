@@ -10,7 +10,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "graphile": "^5.0.0-beta.18"
-  }
+  "dependencies": {}
 }

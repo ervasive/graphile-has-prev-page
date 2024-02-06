@@ -1,12 +1,14 @@
 #!/bin/bash
 set -e
 
-psql -v ON_ERROR_STOP=1 --username "$DB_ROOT_USER" <<-EOSQL
+psql -v ON_ERROR_STOP=1 <<-EOSQL
   create table locations (
     id uuid default gen_random_uuid() primary key,
     name text not null unique,
     is_public boolean not null default true
   );
+
+  create index idx_is_public on locations (is_public);
 
   insert into locations (name, is_public) values
     ('Main Market Place', true),
